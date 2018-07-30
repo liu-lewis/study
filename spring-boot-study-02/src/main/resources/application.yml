@@ -1,0 +1,17 @@
+---
+spring:
+  thymeleaf:
+    mode: HTML
+...
+---
+server:
+  port: 8080
+  servlet:
+    session:
+      timeout: 2000s
+    context-path: /
+  tomcat:
+    uri-encoding: utf-8
+...
+---
+filePath: D://1.jpg

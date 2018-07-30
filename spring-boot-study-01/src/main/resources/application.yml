@@ -1,0 +1,42 @@
+---
+server:
+  port: 8080
+  servlet:
+    context-path: /
+...
+---
+spring:
+  http:
+    encoding:
+       charset: UTF-8
+       enabled: true
+       force: true
+    messages:
+      encoding: UTF-8 
+  redis:
+    host: 127.0.0.1
+...
+---
+book:
+  name: Gone with the wind
+  author:
+    name: 玛格丽特·米切尔
+    age: 118
+...
+---
+server:
+   tomcat:
+     uri-encoding: UTF-8
+
+...
+---
+logging:
+  file: E:/work_files/log
+  level:
+    org:
+      springframework:
+        web: DEBUG
+...
+---
+debug: true
+...

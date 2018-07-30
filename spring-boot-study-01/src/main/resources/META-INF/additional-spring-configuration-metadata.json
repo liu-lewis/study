@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "book.name",
+      "type": "java.lang.String",
+      "description": "Description for book.name."
+    },
+    {
+      "name": "book.author",
+      "type": "java.lang.String",
+      "description": "Description for book.author."
+    }
+  ] }
