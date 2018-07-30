@@ -11,6 +11,7 @@ public class GetSystemInfo {
 
     @Test
     public void printout() {
+        //System.out.println(System.getProperty("java.library.path"));
         Sigar sigar = new Sigar();
         CpuInfo[] infos;
         try {
