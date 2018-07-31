@@ -1,7 +1,12 @@
 package com.lgl.springboot.controller;
 
 import com.lgl.springboot.entity.Person;
+import com.lgl.springboot.entity.WebsocketReceive;
+import com.lgl.springboot.entity.WebsocketResponse;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -52,5 +57,20 @@ public class CommonController {
         Image imageTemp = ImageIO.read(file);
         g.drawImage(imageTemp, 0, 0, WIDTH, HEIGHT, null);
         ImageIO.write(image, "jpeg", os);
+    }
+
+    @RequestMapping(value = "/json", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String jsonTest(Model model) {
+        Person person = new Person("KL", 20);
+        model.addAttribute("single", person);
+        return "jsonView";
+    }
+
+    @MessageMapping(value = "/websocket")
+    @SendTo(value = "/topic/getResponse")
+    public WebsocketResponse send(WebsocketReceive msg) throws Exception {
+        Thread.sleep(3000L);
+        System.out.println("send msg");
+        return new WebsocketResponse("Amazing " + msg.getName() + " !");
     }
 }
